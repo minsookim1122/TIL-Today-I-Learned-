@@ -81,3 +81,53 @@ for문 안에 또 다른 for문을 넣는 구조로, 바깥 반복문이 한 단
 
 # 26. 반복 변수 보존 원칙: The loop variable (e.g. i) should be kept as-is for its original role (like a counter), and any computed result should be stored in a separate new variable instead of overwriting it.
 반복 변수(i)는 원래 역할(예: 몇 번째 반복인지 세는 용도)을 유지하도록 그대로 두고, 계산된 결과는 별도의 새 변수(예: line)에 저장해야 한다 — 그래야 나중에 반복 변수를 다시 원래 용도로 쓸 수 있고 코드도 헷갈리지 않는다.
+
+# 27. while 반복문**: A while loop repeats its block of code as long as a given condition remains true, checking that condition again before every iteration — unlike for, the number of repetitions isn't fixed in advance.
+
+while문은 주어진 조건이 참인 동안 코드 블록을 계속 반복하며, 매 반복 전에 조건을 다시 확인한다 — for문과 달리 반복 횟수가 미리 정해져 있지 않다.
+
+# 28. 무한 루프(infinite loop)**: If nothing inside a while loop ever changes the condition to false, the loop will never stop and must be force-terminated (e.g. with Ctrl+C).
+
+while문 안에서 조건을 거짓으로 만들어줄 코드가 없으면 반복문이 영원히 멈추지 않으며, 이 경우 Ctrl+C 같은 방법으로 강제 종료해야 한다.
+
+# 29. for vs while 선택 기준**: Use for when the number of iterations is known or based on a fixed sequence (like a range); use while when the loop should continue until a condition changes, with the number of iterations unknown in advance.
+
+반복 횟수가 정해져 있거나 고정된 범위(range 등)를 도는 경우엔 for문을, 조건이 바뀔 때까지 계속 반복해야 하고 몇 번 반복될지 미리 알 수 없는 경우엔 while문을 사용한다.
+
+# 30. while 조건 변수의 사전 초기화**: A variable used in a while condition must already exist before the loop starts, since the condition is checked before the loop body ever runs — so it needs an initial value that won't accidentally make the condition true (or false) too early.
+
+while문의 조건에 쓰이는 변수는 반복문 몸통이 실행되기도 전에 조건이 먼저 확인되기 때문에, 반복 시작 전에 미리 존재해야 한다 — 이때 조건을 너무 일찍 참(또는 거짓)으로 만들지 않는 초기값을 넣어줘야 한다.
+
+# 31. input()은 항상 문자열을 반환**: The input() function always returns a string, even if the user types digits, so it must be converted with int() (or float()) before being used in numeric comparisons or arithmetic.
+
+input() 함수는 사용자가 숫자를 입력해도 항상 문자열(str)을 반환하기 때문에, 숫자 비교나 계산에 쓰려면 int()(또는 float())로 변환해야 한다.
+
+# 32. 하드코딩보다 변수 재사용**: When the same value is used in multiple places (like a target number checked in several conditions), storing it in one variable and reusing that variable is better than repeating the literal value, since it only needs to be updated in one place later.
+
+같은 값이 여러 곳에서 쓰일 때(예: 여러 조건에서 비교하는 목표 숫자), 그 값을 리터럴로 반복해서 쓰는 것보다 변수 하나에 저장해서 재사용하는 것이 낫다 — 나중에 값을 바꿀 때 한 곳만 고치면 되기 때문이다.
+앞에 # 붙여줘
+
+# 33. 리스트(List)**: A list is an ordered collection that can hold multiple values together in a single variable, created with square brackets [] and comma-separated items.
+리스트는 여러 개의 값을 하나의 변수에 순서대로 담는 자료구조로, 대괄호 []와 쉼표로 구분된 값들로 만든다.
+
+# 34. 인덱스(index)와 0부터 시작하는 규칙**: Each item in a list has a position number called an index, and Python starts counting from 0, so the first item is list[0], not list[1].
+리스트 안의 각 값은 인덱스라는 위치 번호를 가지며, 파이썬은 0부터 세기 때문에 첫 번째 값은 list[1]이 아니라 list[0]이다.
+
+# 35. 음수 인덱스**: Negative indices count from the end of the list, so list[-1] refers to the last item and list[-2] to the second-to-last.
+음수 인덱스는 리스트의 끝에서부터 세며, list[-1]은 마지막 값을, list[-2]는 뒤에서 두 번째 값을 가리킨다.
+
+# 36. len() 함수**: The len() function returns the number of items stored in a list (or the length of a string).
+len() 함수는 리스트에 담긴 값의 개수(또는 문자열의 길이)를 반환한다.
+
+# 37. 리스트를 for문에 바로 사용**: A list can be passed directly into a for loop, and each iteration automatically retrieves the next value in order — no index or range() is needed.
+리스트는 for문에 바로 넣을 수 있으며, 반복할 때마다 인덱스나 range() 없이도 순서대로 값을 하나씩 자동으로 꺼내준다.
+
+# 38. append() — 값 추가**: The append() method adds a new item to the end of a list.
+append() 메서드는 리스트의 맨 뒤에 새로운 값을 추가한다.
+
+# 39. remove() — 값 제거**: The remove() method deletes a specified value from a list by its actual value, not its index — and raises an error if that value isn't found in the list.
+remove() 메서드는 인덱스가 아니라 실제 값을 기준으로 리스트에서 해당 값을 제거하며, 리스트에 그 값이 없으면 에러가 발생한다.
+
+# 40. 리스트를 통째로 출력할 때의 형태**: Printing an entire list displays it with brackets, quotes, and commas exactly as Python represents it internally (e.g. ['a', 'b']), which differs from printing individual items one at a time.
+리스트 전체를 print()로 출력하면 파이썬 내부 표현 그대로 대괄호, 따옴표, 쉼표가 포함된 형태(예: ['a', 'b'])로 나오며, 이는 개별 값을 하나씩 출력하는 것과는 다른 형태다.
+
